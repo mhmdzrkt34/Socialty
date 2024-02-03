@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
 
         actions: [CamerAction(),
-        Logout()
+        Logout(context)
 
         ],
         automaticallyImplyLeading: false,

@@ -41,7 +41,10 @@ class ProfilePage extends StatelessWidget {
       }
       else {
       return Center(child:
-      Column(children: [Profile("https://10.0.2.2:7008/"+value["profile_Url"], ),PostsView()])
+      Column(children: [
+        
+        
+        Profile(GetIt.instance.get<config>().serverPath+value["profile_Url"], ),PostsView()])
        ,);
       }
 
@@ -53,13 +56,16 @@ class ProfilePage extends StatelessWidget {
 
   Widget Profile(String path){
 
+
+
+
     return Container(
 
       width: 100,
       height: 100,
       margin: EdgeInsets.only(top: 10),
 
-      decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage(image: NetworkImage(path),fit: BoxFit.cover)),
+      decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage(image: NetworkImage(path!),fit: BoxFit.cover)),
     );
   }
 

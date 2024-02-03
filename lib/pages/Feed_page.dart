@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
+import 'package:socialty/models/configiration.dart';
 import 'package:socialty/providers/Home_Page_Provider.dart';
 
 class FeedPage extends StatelessWidget {
@@ -53,7 +54,7 @@ class FeedPage extends StatelessWidget {
             width: _deviceWidth*0.83,
             height: _deviceHeight*0.3,
 
-            decoration: BoxDecoration(image: DecorationImage(image: NetworkImage("https://10.0.2.2:7008/"+value[_index]["post_Url"]),fit: BoxFit.contain)),
+            decoration: BoxDecoration(image: DecorationImage(image: NetworkImage( GetIt.instance.get<config>().serverPath+value[_index]["post_Url"]),fit: BoxFit.contain)),
           );
 
 

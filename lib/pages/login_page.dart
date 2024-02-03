@@ -82,6 +82,7 @@ FormData _formData=FormData();
       width: _deviceWidth*0.9,
       
       child: TextFormField(
+        obscureText: true,
       
         decoration: InputDecoration(hintText:"Password..." ),
         onSaved: (value){

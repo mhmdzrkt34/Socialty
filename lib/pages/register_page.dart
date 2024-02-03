@@ -94,6 +94,7 @@ class RegisterPage extends StatelessWidget {
       width: _deviceWidth*0.9,
       
       child: TextFormField(
+        obscureText: true,
       
         decoration: InputDecoration(hintText:"Password..." ),
         onSaved: (value){
