@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:socialty/Services/AuthService.dart';
 import 'package:socialty/Services/UserService.dart';
+import 'package:socialty/models/configiration.dart';
 import 'package:socialty/pages/login_page.dart';
 import 'package:socialty/pages/register_page.dart';
 import 'package:socialty/providers/Home_Page_Provider.dart';
@@ -13,9 +14,13 @@ import 'package:socialty/providers/login_page_provider.dart';
 import 'package:socialty/providers/register_page_provider.dart';
 
 void main() {
+ GetIt.instance.registerSingleton<config>(config());
+
+ GetIt.instance.get<config>().serverPath="https://10.0.2.2:7008/";//define this base on your hosting server
+
    HttpOverrides.global = MyHttpOverrides();
   GetIt.instance.registerSingleton<Dio>(Dio());
-  GetIt.instance.get<Dio>().options.baseUrl="https://10.0.2.2:7008/api";
+  GetIt.instance.get<Dio>().options.baseUrl="https://10.0.2.2:7008/api";//define this base on your hosting server
    (GetIt.instance.get<Dio>().httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
     client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   };
